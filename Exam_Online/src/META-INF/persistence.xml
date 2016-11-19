@@ -7,8 +7,10 @@
 		<class>entidades.Usuario</class>
 		<class>entidades.Submenu</class>
 		<class>entidades.Acceso</class>
-		<class>entidades.Menu</class>
-		<class>entidades.Rol</class>			
+		<class>entidades.Menu</class> 
+		<class>entidades.Rol</class>
+		<class>entidades.Alternativa</class>
+		<class>entidades.Pregunta</class>					
 		<properties>
    			<property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
           	<property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/evaluacion"/>
