@@ -1,0 +1,60 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../templates/uiConMenu.xhtml">
+	<ui:define name="content">
+	
+<h:form>
+		<p:commandLink id="idRegistrar"
+	             				action="#{programacionAction.irRegistraProgramacion}"
+	              				ajax="false" >
+	             <h:outputText value="Registra Programacion" />
+	     </p:commandLink>
+
+	
+	<!-- 
+			binding : es el objeto que va recibir en el controlador(action)
+					  el elemento seleccionado	
+	 -->
+	<p:dataTable var="aux" value="#{programacionAction.programaciones}"
+						   binding="#{programacionAction.dataProgramacion}">
+		
+		<f:facet name="header"> Lista de Programaciones</f:facet>
+        
+		<p:column headerText="Id">
+        	<h:outputText value="#{aux.idprogramacion}" />
+    	</p:column>
+		<p:column headerText="Nombre">
+        	<h:outputText value="#{aux.nombre}" />
+    	</p:column>
+    	
+		<p:column headerText="Eliminar">
+    		<h:commandButton id="idEliminar" 
+						 image="/images/icons/eliminar.ico" 
+						 actionListener="#{programacionAction.eliminaProgramacion}" />  
+    	</p:column>
+    	
+    	<p:column headerText="Detalle">
+			<p:commandLink id="idDetalle"
+						 action="#{programacionAction.detalleProgramacion}"
+						 ajax="false" >
+					<h:graphicImage  value="/images/icons/lupas.png"/> 
+			 </p:commandLink>
+    	</p:column>
+    	
+    	<p:column headerText="Actualizar">
+			<p:commandLink id="idActualizar"
+						 action="#{programacionAction.buscaProgramacion}"
+						 ajax="false" >
+					<h:graphicImage  value="/images/icons/editar.ico"/> 
+			 </p:commandLink>
+    	</p:column>  
+    	
+	</p:dataTable>
+</h:form>
+	    
+	</ui:define>
+</ui:composition>
+

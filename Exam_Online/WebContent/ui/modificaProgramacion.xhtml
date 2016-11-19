@@ -1,0 +1,31 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../templates/uiConMenu.xhtml">
+	<ui:define name="content">
+
+	
+		<h:form>
+			
+				<p:messages id="msgs"/>  
+					       
+				<h:panelGrid  columns="2" styleClass="alineacionColumna" >
+					
+					<h:outputText value="NOMBRE" />
+					<h:inputText value="#{programacionAction.programacion.nombre}" />
+				
+					<p:commandButton value="Enviar" ajax="false" 
+										action="#{programacionAction.modificaProgramacion}" />
+					<p:commandButton value="Cancelar" ajax="false" 
+										action="#{programacionAction.salirProgramacion}" />
+							
+				</h:panelGrid>
+				
+					<h:inputHidden value="#{programacionAction.programacion.idprogramacion}"/>	
+					</h:form>
+		
+	</ui:define>
+</ui:composition>
+

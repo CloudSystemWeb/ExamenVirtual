@@ -1,0 +1,51 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../templates/uiConMenu.xhtml">
+	<ui:define name="content">
+
+	
+		<h:form>
+			
+				<p:messages id="msgs"/>  
+					       
+				<h:panelGrid  columns="2" styleClass="alineacionColumna" >
+					
+					<h:outputText value="NOMBRE" />
+					<h:inputText value="#{alumnoAction.alumno.nombre}"/>
+					
+					<h:outputText value="APELLIDO" />
+					<h:inputText value="#{alumnoAction.alumno.apellido}" />
+					
+					<h:outputText value="SEXO" />
+					<h:inputText value="#{alumnoAction.alumno.sexo}" />
+					
+					<h:outputText value="FEC. NAC." />
+					<p:calendar value="#{alumnoAction.alumno.fechanacimiento}"
+					pattern="yyyy-MM-dd" />
+					
+					<h:outputText value="CELULAR" />
+					<h:inputText value="#{alumnoAction.alumno.celular}" />
+					
+					<h:outputText value="CORREO" />
+					<h:inputText value="#{alumnoAction.alumno.correo}" />
+					
+					<h:outputText value="DIRECCION" />
+					<h:inputText value="#{alumnoAction.alumno.direccion}" />
+					
+				
+					<p:commandButton value="Enviar" ajax="false" 
+										action="#{alumnoAction.modificaAlumno}" />
+					<p:commandButton value="Cancelar" ajax="false" 
+										action="#{alumnoAction.salirAlumno}" />
+							
+				</h:panelGrid>
+				
+					<h:inputHidden value="#{alumnoAction.alumno.idalumno}"/>	
+					</h:form>
+		
+	</ui:define>
+</ui:composition>
+

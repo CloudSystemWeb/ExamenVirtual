@@ -1,0 +1,63 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../templates/uiConMenu.xhtml">
+	<ui:define name="content">
+	
+<h:form>
+		<p:commandLink id="idRegistrar"
+	             				action="#{cursoAction.irRegistraCurso}"
+	              				ajax="false" >
+	             <h:outputText value="Registra Curso" />
+	     </p:commandLink>
+
+	
+	<!-- 
+			binding : es el objeto que va recibir en el controlador(action)
+					  el elemento seleccionado	
+	 -->
+	<p:dataTable var="aux" value="#{cursoAction.cursos}"
+						   binding="#{cursoAction.dataCurso}">
+		
+		<f:facet name="header"> Lista de Cursos</f:facet>
+        
+		<p:column headerText="Id">
+        	<h:outputText value="#{aux.idcurso}" />
+    	</p:column>
+		<p:column headerText="Nombre">
+        	<h:outputText value="#{aux.nombre}" />
+    	</p:column>
+		<p:column headerText="Marca">
+        	<h:outputText value="#{aux.estado}" />
+    	</p:column>
+		
+    	<p:column headerText="Eliminar">
+    		<h:commandButton id="idEliminar" 
+						 image="/images/icons/eliminar.ico" 
+						 actionListener="#{cursoAction.eliminaCurso}" />  
+    	</p:column>
+    	
+    	<p:column headerText="Detalle">
+			<p:commandLink id="idDetalle"
+						 action="#{cursoAction.detalleCurso}"
+						 ajax="false" >
+					<h:graphicImage  value="/images/icons/lupas.png"/> 
+			 </p:commandLink>
+    	</p:column>
+    	
+    	<p:column headerText="Actualizar">
+			<p:commandLink id="idActualizar"
+						 action="#{cursoAction.buscaCurso}"
+						 ajax="false" >
+					<h:graphicImage  value="/images/icons/editar.ico"/> 
+			 </p:commandLink>
+    	</p:column>  
+    	
+	</p:dataTable>
+</h:form>
+	    
+	</ui:define>
+</ui:composition>
+
