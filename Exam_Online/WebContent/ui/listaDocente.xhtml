@@ -1,0 +1,90 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../templates/uiConMenu.xhtml">
+	<ui:define name="content">
+	
+<h:form>
+		<p:commandLink id="idRegistrar"
+	             				action="#{docenteAction.irRegistraDocente}"
+	              				ajax="false" >
+	             <h:outputText value="Registra Docente" />
+	     </p:commandLink>
+
+	
+	<!-- 
+			binding : es el objeto que va recibir en el controlador(action)
+					  el elemento seleccionado	
+	 -->
+	<p:dataTable var="aux" value="#{docenteAction.docentes}"
+						   binding="#{docenteAction.dataDocente}">
+		
+		<f:facet name="header"> Lista de Docentes</f:facet>
+        
+		<p:column headerText="Id">
+        	<h:outputText value="#{aux.iddocente}" />
+    	</p:column>
+		<p:column headerText="Nombre">
+        	<h:outputText value="#{aux.nombre}" />
+    	</p:column>
+    	
+    	<p:column headerText="Apellido">
+        	<h:outputText value="#{aux.apePaterno}" />
+    	</p:column>
+    	
+    	<p:column headerText="Apellido">
+        	<h:outputText value="#{aux.apeMaterno}" />
+    	</p:column>
+    	
+    	<p:column headerText="Sexo">
+        	<h:outputText value="#{aux.sexo}" />
+    	</p:column>
+    	
+    	
+    	
+    	<p:column headerText="Celular">
+        	<h:outputText value="#{aux.celular}" />
+    	</p:column>
+    	
+    	<p:column headerText="Correo">
+        	<h:outputText value="#{aux.correo}" />
+    	</p:column>
+    	
+    	<p:column headerText="Direccion">
+        	<h:outputText value="#{aux.direccion}" />
+    	</p:column>
+    	
+    	<p:column headerText="Usuario">
+        	<h:outputText value="#{aux.usuario.usuario}" />
+    	</p:column>
+    	
+		<p:column headerText="Eliminar">
+    		<h:commandButton id="idEliminar" 
+						 image="/images/icons/eliminar.ico" 
+						 actionListener="#{docenteAction.eliminaDocente}" />  
+    	</p:column>
+    	
+    	<p:column headerText="Detalle">
+			<p:commandLink id="idDetalle"
+						 action="#{docenteAction.detalleDocente}"
+						 ajax="false" >
+					<h:graphicImage  value="/images/icons/lupas.png"/> 
+			 </p:commandLink>
+    	</p:column>
+    	
+    	<p:column headerText="Actualizar">
+			<p:commandLink id="idActualizar"
+						 action="#{docenteAction.buscaDocente}"
+						 ajax="false" >
+					<h:graphicImage  value="/images/icons/editar.ico"/> 
+			 </p:commandLink>
+    	</p:column>  
+    	
+	</p:dataTable>
+</h:form>
+	    
+	</ui:define>
+</ui:composition>
+

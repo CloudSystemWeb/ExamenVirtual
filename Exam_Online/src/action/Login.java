@@ -33,7 +33,8 @@ public class Login {
 		return "/ui/login";
 	}
 	public String verificarUsuario(){
-	
+		
+		System.out.println("Entre");
 		Map<String,Object>  maps= new HashMap<String,Object>();
 		maps.put("usuario", usuario);
 		maps.put("clave", clave);

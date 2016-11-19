@@ -1,0 +1,42 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../templates/uiConMenu.xhtml">
+	<ui:define name="content">
+
+	
+		<h:form>
+				<p:messages id="msgs"/>  
+				<h:panelGrid  columns="2" styleClass="alineacionColumna" >
+					
+					<h:outputText value="NOMBRE" />
+					<h:outputText value="#{docenteAction.docente.nombre}" />
+					
+					<h:outputText value="APELLIDO" />
+					<h:outputText value="#{docenteAction.docente.apellido}" />
+					
+					<h:outputText value="SEXO" />
+					<h:outputText value="#{docenteAction.docente.sexo}" />
+					
+					<h:outputText value="FEC. NAC" />
+					<h:outputText value="#{docenteAction.docente.fechanacimiento}" converter="javax.faces.DateTime" />
+					
+					<h:outputText value="CELULAR" />
+					<h:outputText value="#{docenteAction.docente.celular}" />
+					
+					<h:outputText value="CORREO" />
+					<h:outputText value="#{docenteAction.docente.correo}" />
+					
+					<h:outputText value="DIRECCION" />
+					<h:outputText value="#{docenteAction.docente.direccion}" />					
+
+					<p:commandButton value="Cancelar" ajax="false" 
+										action="#{docenteAction.salirDocente}" />							
+				</h:panelGrid>
+			</h:form>
+		
+	</ui:define>
+</ui:composition>
+

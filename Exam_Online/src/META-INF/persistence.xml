@@ -4,6 +4,7 @@
 		<class>entidades.Programacion</class>
 		<class>entidades.Curso</class>
 		<class>entidades.Alumno</class>
+		<class>entidades.Docente</class>
 		<class>entidades.Usuario</class>
 		<class>entidades.Submenu</class>
 		<class>entidades.Acceso</class>
