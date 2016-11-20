@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../templates/uiConMenu.xhtml">
+    
+	<ui:define name="content">
+
+		<h:form>
+			<h:panelGrid columns="2">
+				
+			<h:outputText	value="Descripcion"/> 		
+			<h:inputText  value="#{preguntaAction.actividad.descripcion}"/>
+			
+			<p:commandButton  value="Enviar" ajax="false" action="#{preguntaAction.registra}"/>
+			
+			
+			</h:panelGrid>
+			
+		</h:form>  
+	</ui:define>
+</ui:composition>
+

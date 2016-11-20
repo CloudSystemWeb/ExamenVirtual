@@ -1,0 +1,47 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../templates/uiConMenu.xhtml">
+	<ui:define name="content">
+
+	
+		<h:form>
+			
+				<p:messages id="msgs"/>  
+					       
+				<h:panelGrid  columns="2" styleClass="alineacionColumna" >
+					
+					<h:outputText value="DESCRIPCION" />
+					<h:inputText value="#{preguntaAction.pregunta.descripcion}"/>
+					
+					<h:outputText value="TIPO" />
+					<h:selectOneMenu value="#{preguntaAction.pregunta.tipo}">
+					<f:selectItem itemValue="Cream Latte"
+						itemLabel="Coffee3 - Cream Latte" />
+					<f:selectItem itemValue="Extreme Mocha"
+						itemLabel="Coffee3 - Extreme Mocha" />
+					<f:selectItem itemValue="Buena Vista"
+						itemLabel="Coffee3 - Buena Vista" />
+				</h:selectOneMenu>
+					
+					<h:outputText value="TEMA" />
+					<h:inputText value="#{preguntaAction.pregunta.tema}" />
+					
+					<h:outputText value="RESPUESTA" />
+					<h:inputText value="#{preguntaAction.pregunta.respuesta}" />
+					
+				
+					<p:commandButton value="Enviar" ajax="false" 
+										action="#{preguntaAction.modificaPregunta}" />
+					<p:commandButton value="Cancelar" ajax="false" 
+										action="#{preguntaAction.salirPregunta}" />
+							
+				</h:panelGrid>
+					
+			</h:form>
+		
+	</ui:define>
+</ui:composition>
+

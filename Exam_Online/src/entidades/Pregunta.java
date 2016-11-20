@@ -9,13 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-
-
 
 @Entity
-@NamedQuery(name="Actividad.findAll", query="SELECT c FROM Pregunta c")
+@NamedQuery(name="Pregunta.findAll", query="SELECT c FROM Pregunta c")
 public class Pregunta implements Serializable {
 	   private static final long serialVersionUID = 1L;
 
@@ -74,25 +70,6 @@ public class Pregunta implements Serializable {
 	public void setRespuesta(String respuesta) {
 		this.respuesta = respuesta;
 	}
-	
-	
-/*
-	public Alternativa addAlternativa(Alternativa obli) {
-		getObligaciones().add(obli);
-		obli.setActividad(this);
-
-		return obli;
-	}
-
-	public Alternativa removeAlternativa(Alternativa obli) {
-		getObligaciones().remove(obli);
-		obli.setActividad(null);
-
-		return obli;
-	}  */
-	
-	
-	
 	
 	
 	

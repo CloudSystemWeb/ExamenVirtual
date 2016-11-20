@@ -1,0 +1,72 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../templates/uiConMenu.xhtml">
+	<ui:define name="content">
+	
+<h:form>
+		<p:commandLink id="idRegistrar"
+	             				action="#{preguntaAction.irRegistraPregunta}"
+	              				ajax="false" >
+	             <h:outputText value="Registra Preguntas" />
+	     </p:commandLink>
+
+	
+	<!-- 
+			binding : es el objeto que va recibir en el controlador(action)
+					  el elemento seleccionado	
+	 -->
+	<p:dataTable var="aux" value="#{preguntaAction.listpregunta}"
+						   binding="#{preguntaAction.dataPregunta}">
+		
+		<f:facet name="header"> Lista de Preguntas</f:facet>
+        
+		<p:column headerText="Id">
+        	<h:outputText value="#{aux.idpregunta}" />
+    	</p:column>
+		<p:column headerText="Descripcion">
+        	<h:outputText value="#{aux.descripcion}" />
+    	</p:column>
+    	
+    	<p:column headerText="Tipo">
+        	<h:outputText value="#{aux.tipo}" />
+    	</p:column>
+    	
+    	<p:column headerText="Tema">
+        	<h:outputText value="#{aux.tema}" />
+    	</p:column>
+    	
+    	<p:column headerText="Respuesta">
+        	<h:outputText value="#{aux.respuesta}" />
+    	</p:column>
+    	
+		<p:column headerText="Eliminar">
+    		<h:commandButton id="idEliminar" 
+						 image="/images/icons/eliminar.ico" 
+						 actionListener="#{preguntaAction.eliminaPregunta}" />  
+    	</p:column>
+    	
+    	<p:column headerText="Detalle">
+			<p:commandLink id="idDetalle"
+						 action="#{preguntaAction.detallePregunta}"
+						 ajax="false" >
+					<h:graphicImage  value="/images/icons/lupas.png"/> 
+			 </p:commandLink>
+    	</p:column>
+    	
+    	<p:column headerText="Actualizar">
+			<p:commandLink id="idActualizar"
+						 action="#{preguntaAction.buscaPregunta}"
+						 ajax="false" >
+					<h:graphicImage  value="/images/icons/editar.ico"/> 
+			 </p:commandLink>
+    	</p:column>  
+    	
+	</p:dataTable>
+</h:form>
+	    
+	</ui:define>
+</ui:composition>
+
