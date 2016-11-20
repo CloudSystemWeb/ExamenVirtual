@@ -8,9 +8,9 @@
 	
 <h:form>
 		<p:commandLink id="idRegistrar"
-	             				action="#{alumnoAction.irRegistraAlumno}"
+	             				action="#{docenteAction.irRegistraDocente}"
 	              				ajax="false" >
-	             <h:outputText value="Registra Alumno" />
+	             <h:outputText value="Registra Docente" />
 	     </p:commandLink>
 
 	
@@ -18,13 +18,13 @@
 			binding : es el objeto que va recibir en el controlador(action)
 					  el elemento seleccionado	
 	 -->
-	<p:dataTable var="aux" value="#{alumnoAction.alumnos}"
-						   binding="#{alumnoAction.dataAlumno}">
+	<p:dataTable var="aux" value="#{docenteAction.docentes}"
+						   binding="#{docenteAction.dataDocente}">
 		
-		<f:facet name="header"> Lista de Alumnos</f:facet>
+		<f:facet name="header"> Lista de Docentes</f:facet>
         
 		<p:column headerText="Id">
-        	<h:outputText value="#{aux.idalumno}" />
+        	<h:outputText value="#{aux.iddocente}" />
     	</p:column>
 		<p:column headerText="Nombre">
         	<h:outputText value="#{aux.nombre}" />
@@ -63,12 +63,12 @@
 		<p:column headerText="Eliminar">
     		<h:commandButton id="idEliminar" 
 						 image="/images/icons/eliminar.ico" 
-						 actionListener="#{alumnoAction.eliminaAlumno}" />  
+						 actionListener="#{docenteAction.eliminaDocente}" />  
     	</p:column>
     	
     	<p:column headerText="Detalle">
 			<p:commandLink id="idDetalle"
-						 action="#{alumnoAction.detalleAlumno}"
+						 action="#{docenteAction.detalleDocente}"
 						 ajax="false" >
 					<h:graphicImage  value="/images/icons/lupas.png"/> 
 			 </p:commandLink>
@@ -76,7 +76,7 @@
     	
     	<p:column headerText="Actualizar">
 			<p:commandLink id="idActualizar"
-						 action="#{alumnoAction.buscaAlumno}"
+						 action="#{docenteAction.buscaDocente}"
 						 ajax="false" >
 					<h:graphicImage  value="/images/icons/editar.ico"/> 
 			 </p:commandLink>

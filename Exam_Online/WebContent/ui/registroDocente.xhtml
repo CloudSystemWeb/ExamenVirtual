@@ -1,0 +1,80 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../templates/uiConMenu.xhtml">
+	<ui:define name="content">
+
+
+		<h:form>
+
+			<!-- <p:messages id="msgs" /> -->
+			<p:growl id="growl" showDetail="true" />
+
+			<h:panelGrid columns="2">
+
+				<h:outputText value="NOMBRE" />
+				<h:inputText value="#{docenteAction.docente.nombre}" required="true"
+					requiredMessage="Ingrese Nombre..."
+					validatorMessage="El nombre debe ser de 2 a 45 caracteres">
+
+					<f:validateLength minimum="2" maximum="45" />
+				</h:inputText>
+
+				<h:outputText value="APELLIDO Paterno" />
+				<h:inputText value="#{docenteAction.docente.apePaterno}" required="true"
+					requiredMessage="Ingrese Apellido Paterno..."
+					validatorMessage="El apellido debe ser de 2 a 45 caracteres">
+
+					<f:validateLength minimum="2" maximum="20" />
+				</h:inputText>
+
+                  <h:outputText value="APELLIDO Materno" />
+				<h:inputText value="#{docenteAction.docente.apeMaterno}" required="true"
+					requiredMessage="Ingrese Apellido Materno..."
+					validatorMessage="El apellido debe ser de 2 a 45 caracteres">
+
+					<f:validateLength minimum="2" maximum="20" />
+				</h:inputText>
+
+				<h:outputText value="SEXO" />
+				<h:inputText value="#{docenteAction.docente.sexo}" required="true"
+					requiredMessage="Ingrese Sexo..." />
+
+				
+				<h:outputText value="CELULAR" />
+				<h:inputText value="#{docenteAction.docente.celular}" required="true"
+					requiredMessage="Ingrese Celular..."
+					validatorMessage="El celular debe de tener min. 7 y max. 9 numeros">
+
+					<f:validateLength minimum="1" maximum="100" />
+
+				</h:inputText>
+
+				<h:outputText value="CORREO" />
+				<h:inputText value="#{docenteAction.docente.correo}" required="true"
+					requiredMessage="Ingrese Correo..."
+					validatorMessage="Ingrese correo valido. (ejemplo@dominio.com)">
+
+					<f:validateRegex
+						pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+				</h:inputText>
+
+				<h:outputText value="DIRECCION" />
+				<h:inputText value="#{docenteAction.docente.direccion}"
+					required="false" requiredMessage="Ingrese Direccion..." />
+
+				<p:commandButton value="Enviar" ajax="false"
+					action="#{docenteAction.registraDocente}" />
+				<p:commandButton value="Cancelar" ajax="false"
+					action="#{docenteAction.salirDocente}" immediate="true"/>
+
+			</h:panelGrid>
+
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>
+
